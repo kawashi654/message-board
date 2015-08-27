@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @messages = Message.all
     @message = Message.new
   end
-
+  
   ## ここから追記
   def create
     @message = Message.new(message_params)
@@ -16,6 +16,8 @@ class MessagesController < ApplicationController
       @messages = Message.all
       flash.now[:alert] = "メッセージの保存に失敗しました。"
       render 'index' end
+  end
+  def edit
   end
   def update
     if @message.update(message_params)

@@ -16,13 +16,18 @@
        
     </div>
   </nav>
-  <div class="container">
+   <div class="container">
+    <% if notice %>
+      <div class="alert alert-info">
+        <%= notice %>
+      </div>
+    <% end %>
+   
     <%= yield %>
-    <footer>
+  </div>
+   <footer>
       <br/>
       <div class="copyright col-sm-offset-5 col-sm-10">© 2015 message-bord Inc.</div>
     </footer>
-  </div>
- 
 </body>
 </html>
