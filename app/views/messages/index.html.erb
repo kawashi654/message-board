@@ -1,17 +1,38 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    メッセージ一覧
+    <span class="label label-info">メッセージ一覧</span
   </div>
 
   <div class="panel-body">
+    <!-- Table -->
     <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-        <%= message.body %>
-        (<%= link_to "edit" , edit_message_path(message) %>
+  　<table class="table">
+  　  <thead>
+  　    <tr>
+  　      <th>名前</th>
+  　      <th>年齢</th>
+  　      <th>内容</th>
+  　    </tr>
+  　  </thead>
+  　  <tbody>
+  　    <tr>
+  　      <td><%= message.name %></td>
+  　      <td><%= message.age %>歳</td>
+  　      <td><%= message.body %></td>
+  　    </tr>
+  　  </tbody>
+  　  </table>
+  　 <div class="btn-group" role="group" aria-label="lage button group">
+        <button type="button" class="btn btn-default">
+          <%= link_to "edit" , edit_message_path(message) %>
+        </button>
+        <button type="button" class="btn btn-default">  
          <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
-        )
+        </button> 
+    </div>
       <br>
     <% end %>
+  　
   </div>
 </div>
 
